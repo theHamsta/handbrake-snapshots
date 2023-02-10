@@ -34,14 +34,16 @@ jobs:
             echo "Toolchain Verification FAILED. Exiting!"
             return -1
         fi
+    - uses: actions/checkout@v3
+      with:
+        repository: theHamsta/Handbrake-private
+        token: ${{ secrets.GH_ACCESS_TOKEN }}
         
     - name: Build CLI and LibHB
       run: |
         CWDIR=$(pwd)
         export PATH="$CWDIR/toolchains/llvm-mingw-msvcrt/bin:${PATH}"
         export PATH=/usr/bin:$PATH
-        git clone https://github.com/theHamsta/HandBrake-private.git
-        git checkout multichunks
         cd HandBrake
         ./configure --cross=aarch64-w64-mingw32 --enable-mf --launch-jobs=0 --launch
         cd build
