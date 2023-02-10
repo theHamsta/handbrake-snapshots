@@ -2,8 +2,6 @@ name: Windows Build
 
 on:
   push:
-  schedule:
-    - cron:  '30 7 * * 1,5'
   
   workflow_dispatch: 
   
@@ -42,7 +40,8 @@ jobs:
         CWDIR=$(pwd)
         export PATH="$CWDIR/toolchains/llvm-mingw-msvcrt/bin:${PATH}"
         export PATH=/usr/bin:$PATH
-        git clone https://github.com/HandBrake/HandBrake.git
+        git clone https://github.com/theHamsta/HandBrake-private.git
+        git checkout multichunks
         cd HandBrake
         ./configure --cross=aarch64-w64-mingw32 --enable-mf --launch-jobs=0 --launch
         cd build
