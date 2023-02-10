@@ -44,7 +44,6 @@ jobs:
         CWDIR=$(pwd)
         export PATH="$CWDIR/toolchains/llvm-mingw-msvcrt/bin:${PATH}"
         export PATH=/usr/bin:$PATH
-        cd HandBrake
         ./configure --cross=aarch64-w64-mingw32 --enable-mf --launch-jobs=0 --launch
         cd build
         make pkg.create.zip
