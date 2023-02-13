@@ -64,7 +64,7 @@ jobs:
         CWDIR=$(pwd)
         export PATH="$CWDIR/toolchains/mingw-w64-toolchain-9.2.0-linux-x86_64/mingw-w64-x86_64/bin:${PATH}"
         export PATH=/usr/bin:$PATH
-        ./configure --cross=x86_64-w64-mingw32 --enable-qsv --enable-vce --enable-nvenc --enable-nvdec --launch-jobs=0 --launch
+        ./configure --cross=x86_64-w64-mingw32 --disable-qsv --enable-nvenc --enable-nvdec --launch-jobs=0 --launch
         cd build
         make pkg.create.zip
 
@@ -72,13 +72,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: HandBrakeCLI
-        path: ./HandBrake/build/pkg/*.zip
+        path: ./build/pkg/*.zip
 
     - name: Upload LibHB
       uses: actions/upload-artifact@v3
       with:
         name: LibHandBrake
-        path: ./HandBrake/build/libhb/hb.dll
+        path: ./build/libhb/hb.dll
 
   build_gui_x64:
     name: Windows UI
