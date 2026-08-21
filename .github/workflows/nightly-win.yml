@@ -160,7 +160,7 @@ jobs:
       run: |
         wget https://github.com/HandBrake/HandBrake-toolchains/releases/download/1.0/mingw-w64-toolchain-12.0.0-ucrt-linux-x86_64.tar.gz
         SHA=$(sha1sum mingw-w64-toolchain-12.0.0-ucrt-linux-x86_6.tar.gz)
-        EXPECTED="43abbe33e79d273da2cd102fe45e196b56b5bc92  mingw-w64-toolchain-12.0.0-ucrt-linux-x86_6.tar.gz"
+        EXPECTED="43abbe33e79d273da2cd102fe45e196b56b5bc92  mingw-w64-toolchain-12.0.0-ucrt-linux-x86_64.tar.gz"
         if [ "$SHA" == "$EXPECTED" ];
         then
             echo "Toolchain Verified. Extracting ..."
