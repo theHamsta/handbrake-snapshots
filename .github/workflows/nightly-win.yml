@@ -159,15 +159,15 @@ jobs:
     - name: Setup Toolchain
       run: |
         wget https://github.com/HandBrake/HandBrake-toolchains/releases/download/1.0/mingw-w64-toolchain-12.0.0-ucrt-linux-x86_64.tar.gz
-        SHA=$(sha1sum mingw-w64-toolchain-12.0.0-ucrt-linux-x86_6.tar.gz)
+        SHA=$(sha1sum mingw-w64-toolchain-12.0.0-ucrt-linux-x86_64.tar.gz)
         EXPECTED="43abbe33e79d273da2cd102fe45e196b56b5bc92  mingw-w64-toolchain-12.0.0-ucrt-linux-x86_64.tar.gz"
         if [ "$SHA" == "$EXPECTED" ];
         then
             echo "Toolchain Verified. Extracting ..."
             mkdir toolchains
-            mv mingw-w64-toolchain-12.0.0-ucrt-linux-x86_6.tar.gz toolchains
+            mv mingw-w64-toolchain-12.0.0-ucrt-linux-x86_64.tar.gz toolchains
             cd toolchains
-            tar xvf mingw-w64-toolchain-12.0.0-ucrt-linux-x86_6.tar.gz
+            tar xvf mingw-w64-toolchain-12.0.0-ucrt-linux-x86_64.tar.gz
             cd mingw-w64-toolchain-12.0.0-ucrt-linux-x86_6/mingw-w64-x86_64/
             pwd
         else
